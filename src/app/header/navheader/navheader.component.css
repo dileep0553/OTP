@@ -1,0 +1,125 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    /*change these background properties for better result*/
+    background: url(https://images.pexels.com/photos/205316/pexels-photo-205316.png?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+    background-attachment: fixed;
+    background-position: center;
+  }
+  header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0 10px;
+    background: #262626;
+    width: 100%;
+    height: 50px;
+    box-sizing: border-box;
+  }
+  header .logo {
+    color: #fff;
+    height: 50px;
+    line-height: 50px;
+    font-size: 24px;
+    float: left;
+    font-weight: bold;
+  }
+  header nav {
+    float: right;
+  }
+  header nav ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
+  }
+
+  header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    margin: 15px 20px;
+    display: block;
+    border-bottom-width: 0px;
+  }
+  header nav ul li a:before{
+    display:block;
+    content: '';
+    border-bottom:2px solid #6e78f6;  
+    transform: scaleX(0);  
+    transition: transform 0.5s ease-in-out;
+    position: absolute;
+    top:2.5em; left:0;
+    width: 100px;
+    
+  }
+  header nav ul li a:hover:not(.active):before { transform: scaleX(1); }
+  header nav ul li a:hover:not(.active){
+    cursor: pointer;
+    border-bottom-width: 3px;
+  }
+  header nav ul li a.active {
+    color: #fff;
+    cursor: pointer;
+    border-bottom: 2px solid #6e78f6;
+  }
+  .menu-toggle {
+    color: #fff;
+    float: right;
+    line-height: 50px;
+    font-size: 24px;
+    cursor: pointer;
+    display: none;
+  }
+  @media (max-width: 991px) {
+    header {
+      padding: 0 20px;
+    }
+    .menu-toggle {
+      display: block;
+    }
+    .swipe-area {
+        position: absolute;
+        width: 50px;
+        left: 0;
+    top: 0;
+        height: 100%;
+        background: #f3f3f3;
+        z-index: 0;
+    }
+    header nav {
+      position: absolute;
+      width: 150px;
+      height: calc(100vh - 50px);
+      background: #333;
+      top: 50px;
+      left: -100%;
+      transition: 0.5s;
+    }
+    header nav.active {
+      left: 0;
+      z-index: 999;
+    }
+    header nav ul {
+      display: block;
+      text-align: center;
+    }
+    header nav ul li.active ul {
+      position: relative;
+      background: #003e6f;
+    }
+    header nav ul li ul li {
+      width: 100%;
+    }
+  }
+  @media only screen and (max-width:991px){
+  .sidebar-swipe {
+    position: fixed;
+    z-index: 1001;
+    width: 180px;
+    left: 0;
+    top: 50px;
+    bottom: 0;
+    -moz-user-select: -moz-none;
+    user-select: none;
+    
+  }}
